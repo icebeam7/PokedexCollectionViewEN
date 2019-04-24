@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="PokedexCollectionViewEN.Views.PokemonPopUpPage">
+    <popup:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Bottom"
+            PositionOut="Center"
+            ScaleIn="1"
+            ScaleOut="0.7"
+            DurationIn="700"
+            EasingIn="BounceOut"/>
+    </popup:PopupPage.Animation>
+
+    <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
+        <AbsoluteLayout>
+            <Frame
+                x:Name="FrameContainer"
+                Margin="15"
+                HorizontalOptions="Center"
+                BackgroundColor="White">
+
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" 
+                               Source="{Binding ImageURL}" 
+                               Aspect="AspectFit"
+                               HeightRequest="60" 
+                               WidthRequest="60" />
+                    <Label Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                               Text="{Binding name.english}" 
+                               FontAttributes="Bold" />
+                    <Label Grid.Row="1"
+                               Grid.Column="1" 
+                                   VerticalTextAlignment="Center"
+                               Text="{Binding Types}"
+                               FontAttributes="Italic" 
+                               VerticalOptions="Center"
+                                   LineBreakMode="TailTruncation"/>
+                </Grid>
+            </Frame>
+        </AbsoluteLayout>
+    </ScrollView>
+</popup:PopupPage>
